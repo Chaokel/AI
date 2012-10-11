@@ -4,6 +4,7 @@
 Rule::Rule(void)
 {
 	Property = false;
+	Money = false;
 }
 
 

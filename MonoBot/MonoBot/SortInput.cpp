@@ -36,6 +36,47 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 				if(tempword == "property")
 				{
 					(*RuleList)[RuleNumber].SetProperty(true);
+					stream >> tempword; // next word will be is
+					stream >> tempword; // word after will contain information on who the rule is about
+
+					if(tempword == "owned")
+					{
+						(*RuleList)[RuleNumber].SetPropertyStatus(2);
+					}
+					else if(tempword == "not")
+					{
+						(*RuleList)[RuleNumber].SetPropertyStatus(1);
+					}
+					else if(tempword == "player")
+					{
+						(*RuleList)[RuleNumber].SetPropertyStatus(3);
+					}
+				}
+				else if(tempword == "money")
+				{
+					(*RuleList)[RuleNumber].SetMoney(true);
+
+					stream >> tempword;
+					if(tempword == "<")
+					{
+
+					}
+					else if(tempword == ">")
+					{
+
+					}
+					else if(tempword == "=")
+					{
+
+					}
+					else
+					{
+						//throw error?
+					}
+				}
+				else if(tempword == "jail")
+				{
+
 				}
 			}
 			//need to parse this
