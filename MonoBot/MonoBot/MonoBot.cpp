@@ -41,7 +41,7 @@ std::vector<int> Bond;
 std::vector<int> ParkLane;
 std::vector<int> Mayfair;
 
-std::vector<Rule> RuleList;
+
 
 
 int main()
@@ -49,6 +49,9 @@ int main()
 	MonopolyMechanics Game;
 	InputClass RuleInput;
 	SortInput Sort;
+	std::vector<Rule> RuleList;
+
+	RuleList.resize(100);
 	//std::ifstream RulesStream;
 	//std::string RulesFile; 
 
@@ -59,7 +62,7 @@ int main()
 	RulesFile >> RuleInput;
 	
 	Sort.GetInput(RuleInput.GetRules());
-	Sort.SortRules(RuleList);
+	Sort.SortRules(&RuleList);
 
 	int Movement = 0;
 	int DiceCount = 0;

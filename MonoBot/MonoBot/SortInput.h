@@ -1,5 +1,8 @@
 #pragma once
 
+#ifndef SORTINPUT_H
+#define SORTINPUT_H
+
 #include "Rule.h"
 
 #include <vector>
@@ -14,7 +17,7 @@ public:
 
 	void GetInput(const std::vector<std::string> &I);
 
-	void SortRules(std::vector<Rule>& RuleList);
+	void SortRules(std::vector<Rule> *RuleList);
 
 private:
 
@@ -22,4 +25,6 @@ private:
 	int RuleNumber;
 
 };
+
+#endif
 
