@@ -16,6 +16,12 @@ public:
 		Trading = 3,
 		Waiting = 4
 	};
+	enum MoneySign_t
+	{
+		GreaterThan = 1,
+		LessThan = 2,
+		EqualTo = 3
+	};
 
 	Rule(void);
 	~Rule(void);
@@ -23,12 +29,19 @@ public:
 	void SetProperty(const bool Boolean) {Property = Boolean;}
 	void SetPropertyStatus(int Status) {PropertyStatus = (PropertyStatus_t)Status;}
 
-	void SetMoney(const bool Boolean) {Money = Boolean;}
+	void SetMoneyRule(const bool Boolean) {MoneyRule = Boolean;}
 
 	void SetState(int Status) {State = (State_t)Status;}
+
+	void SetMoney(int Price) {Money = Price;}
+	void SetMoneySign(int Sign) {MoneySign = (MoneySign_t)Sign;}
+
 private:
 	bool Property;
-	bool Money;
+	bool MoneyRule;
+	int Money;
+
+	MoneySign_t MoneySign;
 	PropertyStatus_t PropertyStatus;
 	State_t State;
 };

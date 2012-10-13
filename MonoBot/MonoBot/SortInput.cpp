@@ -23,6 +23,7 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 
 	std::string temp = "/0";
 	std::string tempword = "/0";
+	int tempvalue = 0;
 
 	temp = Rules[count];
 	std::stringstream stream(temp);
@@ -54,30 +55,62 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 				}
 				else if(tempword == "money")
 				{
-					(*RuleList)[RuleNumber].SetMoney(true);
+					(*RuleList)[RuleNumber].SetMoneyRule(true);
 
 					stream >> tempword;
 					if(tempword == "<")
 					{
-
+						(*RuleList)[RuleNumber].SetMoneySign(2);
 					}
 					else if(tempword == ">")
 					{
-
+						(*RuleList)[RuleNumber].SetMoneySign(1);
 					}
 					else if(tempword == "=")
+					{
+						(*RuleList)[RuleNumber].SetMoneySign(3);
+					}
+					else
+					{
+						//throw error?
+					}
+
+					stream  >> tempvalue;
+					//Not int
+					if(!std::cin.good())
 					{
 
 					}
 					else
 					{
-						//throw error?
+						(*RuleList)[RuleNumber].SetMoney(tempvalue);
 					}
 				}
 				else if(tempword == "jail")
 				{
 
 				}
+				//Rule has a phase based component
+				else if(tempword == "phase")
+				{
+					if(tempword == "movement")
+					{
+						(*RuleList)[RuleNumber].SetState(1);
+					}
+					else if(tempword == "upgrade")
+					{
+						(*RuleList)[RuleNumber].SetState(2);
+					}
+					else if(tempword == "trading")
+					{
+						(*RuleList)[RuleNumber].SetState(3);
+					}
+					else if(tempword == "waiting")
+					{
+						(*RuleList)[RuleNumber].SetState(4);
+					}
+				}
+
 			}
 			//need to parse this
 			//RuleList[RuleNumber]->Property(1);
