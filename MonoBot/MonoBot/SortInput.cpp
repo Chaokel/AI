@@ -32,7 +32,7 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 		//temp = Rules[count];
 		if(tempword == "IF")
 		{
-			while(stream >> tempword)
+			while((stream >> tempword) != "ENDLINE")
 			{
 				if(tempword == "property")
 				{
@@ -77,8 +77,14 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 
 					stream  >> tempvalue;
 					//Not int
-					if(!std::cin.good())
+					if(tempvalue < 5)
 					{
+						(*RuleList)[RuleNumber].SetMultiplier(tempvalue);
+
+						//will just be times / multiply
+						stream >> tempvalue;
+						//Thing being multiplied by
+						stream >> tempvalue;
 
 					}
 					else

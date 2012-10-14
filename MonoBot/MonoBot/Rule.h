@@ -22,6 +22,12 @@ public:
 		LessThan = 2,
 		EqualTo = 3
 	};
+	enum MoneyText_t
+	{
+		PropertyValue =  1
+
+
+	};
 
 	Rule(void);
 	~Rule(void);
@@ -36,13 +42,28 @@ public:
 	void SetMoney(int Price) {Money = Price;}
 	void SetMoneySign(int Sign) {MoneySign = (MoneySign_t)Sign;}
 
+	void SetMultiplier(int Multiple) {Multiplier = Multiple;}
+	void SetMoneyText(int Text) {MoneyText = (MoneyText_t)Text;}
+
+	//Getters
+	bool GetProperty() const {return Property;}
+	bool GetMoneyRule() const {return MoneyRule;}
+	int GetMoney() const {return Money;}
+	int GetMultiplier() const {return Multiplier;}
+	MoneySign_t GetMoneySign() const {return MoneySign;}
+	PropertyStatus_t GetPropertyStatus() const {return PropertyStatus;}
+	State_t GetState() const {return State;}
+	MoneyText_t GetMoneyText() const {return MoneyText;}
+
 private:
 	bool Property;
 	bool MoneyRule;
 	int Money;
+	int Multiplier;
 
 	MoneySign_t MoneySign;
 	PropertyStatus_t PropertyStatus;
 	State_t State;
+	MoneyText_t MoneyText
 };
 
