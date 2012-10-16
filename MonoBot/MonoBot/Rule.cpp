@@ -4,7 +4,10 @@
 Rule::Rule(void)
 {
 	Property = false;
-	Money = false;
+	MoneyRule = false;
+	Money = 0;
+	Multiplier = 0;
+	State = 0;
 }
 
 

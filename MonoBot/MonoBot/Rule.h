@@ -11,6 +11,7 @@ public:
 	//The states in which the rule can be called.
 	enum State_t
 	{
+		NotSet = 0,
 		Movement = 1,
 		Upgrade = 2,
 		Trading = 3,
@@ -64,6 +65,6 @@ private:
 	MoneySign_t MoneySign;
 	PropertyStatus_t PropertyStatus;
 	State_t State;
-	MoneyText_t MoneyText
+	MoneyText_t MoneyText;
 };
 

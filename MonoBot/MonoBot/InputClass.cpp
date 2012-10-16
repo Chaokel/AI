@@ -4,6 +4,7 @@
 InputClass::InputClass(void)
 {
 	Count = 0;
+	Rules.resize(20);
 }
 
 

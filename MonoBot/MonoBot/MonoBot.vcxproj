@@ -82,6 +82,7 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="InputClass.h" />
     <ClInclude Include="MonopolyMechanics.h" />
+    <ClInclude Include="Result.h" />
     <ClInclude Include="Rule.h" />
     <ClInclude Include="SelectRules.h" />
     <ClInclude Include="SortInput.h" />
@@ -94,6 +95,7 @@
     <ClCompile Include="InputClass.cpp" />
     <ClCompile Include="MonoBot.cpp" />
     <ClCompile Include="MonopolyMechanics.cpp" />
+    <ClCompile Include="Result.cpp" />
     <ClCompile Include="Rule.cpp" />
     <ClCompile Include="SelectRules.cpp" />
     <ClCompile Include="SortInput.cpp" />

@@ -16,7 +16,7 @@ void SortInput::GetInput(const std::vector<std::string> &I)
 	Rules = I;
 }
 
-void SortInput::SortRules(std::vector<Rule> *RuleList)
+void SortInput::SortRules(std::vector<Rule> *RuleList, std::vector<Result> *ResultList)
 {
 	int count = 0;
 	int StreamPosition = 0;
@@ -26,14 +26,16 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 	int tempvalue = 0;
 
 	temp = Rules[count];
-	std::stringstream stream(temp);
-	while(Rules[count] != "/0")
+	std::stringstream stream;
+	stream << temp;
+	stream >> tempword;
+	while(Rules[count] != "")
 	{
-		//temp = Rules[count];
 		if(tempword == "IF")
 		{
-			while((stream >> tempword) != "ENDLINE")
+			while(stream >> tempword)
 			{
+
 				if(tempword == "property")
 				{
 					(*RuleList)[RuleNumber].SetProperty(true);
@@ -99,6 +101,10 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 				//Rule has a phase based component
 				else if(tempword == "phase")
 				{
+					//next word will be is
+					stream >> tempword;
+					//this is the word to be parsed
+					stream >> tempword;
 					if(tempword == "movement")
 					{
 						(*RuleList)[RuleNumber].SetState(1);
@@ -120,16 +126,30 @@ void SortInput::SortRules(std::vector<Rule> *RuleList)
 			}
 			//need to parse this
 			//RuleList[RuleNumber]->Property(1);
-
+			RuleNumber++;
 		}
 		else if(tempword == "THEN")
 		{
+			RuleNumber--;
+			stream >> tempword;
+			if(tempword == "")
+			{
 
+			}
+
+			RuleNumber++;
 		}
 		else
 		{
 			//throw error / skip
 		}
+				
+		count++;
+		temp = Rules[count];
+		stream.clear();
+		stream << temp;
+		
+		stream >> tempword;
 
 	}
 

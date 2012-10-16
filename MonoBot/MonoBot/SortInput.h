@@ -4,6 +4,7 @@
 #define SORTINPUT_H
 
 #include "Rule.h"
+#include "Result.h"
 
 #include <vector>
 #include <string>
@@ -18,11 +19,11 @@ public:
 
 	void GetInput(const std::vector<std::string> &I);
 
-	void SortRules(std::vector<Rule> *RuleList);
+	void SortRules(std::vector<Rule> *RuleList, std::vector<Result> *ResultList);
 
 private:
 
-	std::vector<std::string> Rules; 
+	std::vector<std::string> Rules;
 	int RuleNumber;
 
 };

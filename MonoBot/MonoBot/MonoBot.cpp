@@ -5,6 +5,7 @@
 #include "Dice.h"
 #include "SortInput.h"
 #include "Rule.h"
+#include "Result.h"
 
 #include <vector>
 #include <map>
@@ -12,6 +13,8 @@
 #include <stdio.h>
 #include <iostream>
 #include <fstream>
+#include <time.h>
+
 
 void SetPropertyPrices();
 
@@ -42,18 +45,20 @@ std::vector<int> ParkLane;
 std::vector<int> Mayfair;
 
 
-
-
 int main()
 {
 	MonopolyMechanics Game;
 	InputClass RuleInput;
 	SortInput Sort;
+	Result RuleResults;
 	std::vector<Rule> RuleList;
+	std::vector<Result> RuleResult;
+	srand(time(0));
 
-	RuleList.resize(100);
-	//std::ifstream RulesStream;
-	//std::string RulesFile; 
+	int RuleMax = 20;
+
+	RuleList.resize(RuleMax);
+	RuleResult.resize(RuleMax);
 
 	//Input all the rules to be sorted
 	std::ifstream RulesFile("Rules.txt");
@@ -62,8 +67,17 @@ int main()
 	RulesFile >> RuleInput;
 	
 	Sort.GetInput(RuleInput.GetRules());
-	Sort.SortRules(&RuleList);
+	Sort.SortRules(&RuleList, &RuleResult);
+	
+	if(RuleList[1].GetProperty())
+		std::cout << "Rule[1], property true" << std::endl;
 
+	std::cout << RuleList[1].GetMoney() << std::endl;
+	std::cout << RuleList[1].GetPropertyStatus() << std::endl;
+
+	std::cout << RuleList[2].GetState() << std::endl;
+	std::cout << RuleList[2].GetPropertyStatus() << std::endl;
+	getchar();
 	int Movement = 0;
 	int DiceCount = 0;
 
@@ -72,10 +86,10 @@ int main()
 	//Roll dice twice
 	do
 	{
-		std::cout << (Movement += Die.RollDice());
+		Movement += Die.RollDice();
 		DiceCount++;
 	}while(DiceCount%2 != 0);
-
+	std::cout << Movement;
 	Game.Movement(Movement);
 	getchar();
 

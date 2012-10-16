@@ -6,6 +6,7 @@ MonopolyMechanics::MonopolyMechanics(void)
 	Position = 0;
 	Money = 1500;
 	PropetiesOwned = 0;
+	State = 0;
 }
 
 

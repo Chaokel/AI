@@ -3,6 +3,7 @@
 
 SelectRules::SelectRules(void)
 {
+	RuleNumber = 1;
 }
 
 
@@ -10,9 +11,28 @@ SelectRules::~SelectRules(void)
 {
 }
 
-void SelectRules::PickType(int Position, int Rule)
+int SelectRules::PickType(int Position, int MaxRules, std::vector<Rule> *Rule, MonopolyMechanics Memory)
 {
-	if(Rule == Property)
+	//First validation check to see if rule is applicable. State test.
+	do
+	{
+		if((*Rule)[RuleNumber].GetState() == Memory.GetState())
+		{
+			//Second validation. Property test
+			if((*Rule)[RuleNumber].GetProperty() == true) //true doesn't work here.
+			{
+
+			}
+
+		}
+		else
+		{
+			RuleNumber++;
+		}
+	}while(RuleNumber < MaxRules)
+
+
+	/*if(Rule == Property)
 	{
 		//execute property rule
 	}
@@ -28,6 +48,6 @@ void SelectRules::PickType(int Position, int Rule)
 	else
 	{
 		//Throw errow. Possibly try / catch
-	}
+	}*/
 }
 

@@ -6,6 +6,10 @@
 	Determines which rules should be fired to decide outputs.
 
 */
+#include "Rule.h"
+#include "MonopolyMechanics.h"
+
+#include <vector>
 
 class SelectRules
 {
@@ -15,10 +19,11 @@ public:
 	SelectRules(void);
 	~SelectRules(void);
 
-	void PickType(int Position, int Rule);
+	int PickType(int Position, int MaxRules, std::vector<Rule> *Rules, MonopolyMechanics Memory);
 
 
 private:
 
+	int RuleNumber;
 };
 

@@ -1,1 +1,9 @@
-IF property is not owned AND money > 
+IF property is not owned AND money > 3000 ENDLINE
+THEN blahblah
+-
+IF phase is movement AND property is owned
+THEN blah blah
+-
+IF waiting phase
+THEN blah blah
+-
