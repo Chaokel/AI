@@ -6,7 +6,7 @@ MonopolyMechanics::MonopolyMechanics(void)
 	Position = 0;
 	Money = 1500;
 	PropetiesOwned = 0;
-	State = 0;
+	State = (State_t)0;
 }
 
 
@@ -19,25 +19,25 @@ void MonopolyMechanics::Movement(int MoveValue)
 	Position += MoveValue;
 }
 
-void MonopolyMechanics::CheckPosition()
+int MonopolyMechanics::CheckPosition()
 {
 	if(((Position % 40) != 2) && ((Position % 40) != 4) && ((Position % 40) != 7) && ((Position %40) !=  22) && ((Position %40) != 33) && ((Position%40) != 36) && ((Position%40) != 38) && ((Position%40) != 10) && ((Position%40) != 20) && ((Position%40) != 30))
 	{
 		//Have landed on a propety
 
-		Inference.PickType(Position, 1);
+		return 1;
 	}
 	else if(((Position%40) == 10) || ((Position%40) == 30))
 	{
 		//Have landed on either, goto jail or are in jail.
 
-		Inference.PickType(Position, 2);
+		return 2;
 	}
 	else
 	{
 		//Have landed on other
 		
-		Inference.PickType(Position, 3);
+		return 3;
 	}
 }
 

@@ -11,7 +11,7 @@ SelectRules::~SelectRules(void)
 {
 }
 
-int SelectRules::PickType(int Position, int MaxRules, std::vector<Rule> *Rule, MonopolyMechanics Memory)
+int SelectRules::PickType(int MaxRules, std::vector<Rule> *Rule, MonopolyMechanics Memory)
 {
 	//First validation check to see if rule is applicable. State test.
 	do
@@ -19,7 +19,7 @@ int SelectRules::PickType(int Position, int MaxRules, std::vector<Rule> *Rule, M
 		if((*Rule)[RuleNumber].GetState() == Memory.GetState())
 		{
 			//Second validation. Property test
-			if((*Rule)[RuleNumber].GetProperty() == true) //true doesn't work here.
+			if((*Rule)[RuleNumber].GetProperty() == true) //true doesn't work here. or does it?
 			{
 
 			}

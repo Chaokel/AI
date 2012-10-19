@@ -17,8 +17,10 @@ public:
 	~MonopolyMechanics(void);
 
 	void Movement(int MoveValue);
-	void CheckPosition();
+
+	int CheckPosition();
 	
+	int GetPosition() const {return Position;}
 	State_t GetState() const {return State;}
 
 private:

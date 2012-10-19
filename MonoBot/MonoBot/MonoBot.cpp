@@ -51,6 +51,7 @@ int main()
 	InputClass RuleInput;
 	SortInput Sort;
 	Result RuleResults;
+	SelectRules Inference;
 	std::vector<Rule> RuleList;
 	std::vector<Result> RuleResult;
 	srand(time(0));
@@ -69,6 +70,7 @@ int main()
 	Sort.GetInput(RuleInput.GetRules());
 	Sort.SortRules(&RuleList, &RuleResult);
 	
+	Inference.PickType(RuleMax, &RuleList, Game);
 	if(RuleList[1].GetProperty())
 		std::cout << "Rule[1], property true" << std::endl;
 

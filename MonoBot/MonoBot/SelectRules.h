@@ -19,7 +19,7 @@ public:
 	SelectRules(void);
 	~SelectRules(void);
 
-	int PickType(int Position, int MaxRules, std::vector<Rule> *Rules, MonopolyMechanics Memory);
+	int PickType(int MaxRules, std::vector<Rule> *Rules, MonopolyMechanics Memory);
 
 
 private:

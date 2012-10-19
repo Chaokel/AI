@@ -7,7 +7,7 @@ Rule::Rule(void)
 	MoneyRule = false;
 	Money = 0;
 	Multiplier = 0;
-	State = 0;
+	State = (State_t)0;
 }
 
 
